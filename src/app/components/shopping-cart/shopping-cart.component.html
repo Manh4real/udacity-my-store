@@ -43,6 +43,10 @@
           </button>
         </div>
       </div>
+
+      <p *ngIf="cart.length === 0" class="font-serif text-gray-500">
+        Cart is empty.
+      </p>
     </div>
 
     <app-checkout-form
