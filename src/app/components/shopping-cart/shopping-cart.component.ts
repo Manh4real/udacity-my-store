@@ -46,6 +46,8 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   onCheckoutSubmit(checkoutForm: CheckoutForm): void {
+    if (this.cart.length === 0) return;
+
     this.router.navigate(['/order-confirmation'], {
       queryParams: {
         q: btoa(

@@ -2,9 +2,9 @@
   <a [routerLink]="['/details', product.product_id]" class="bg-gray-50 border">
     <img
       class="mx-auto"
-      width="300"
       [src]="product.image_url"
       [alt]="product.name"
+      class="object-cover w-[300px] h-[300px]"
     />
   </a>
 
