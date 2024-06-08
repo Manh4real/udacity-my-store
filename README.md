@@ -1,6 +1,8 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+## Backend
+
+Pull this repo and read the README.md for the instruction to properly start the BE on your local machine: https://github.com/Manh4real/udacity-storefront-be
 
 ## Development server
 
