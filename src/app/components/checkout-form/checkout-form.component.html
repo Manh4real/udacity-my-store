@@ -1,0 +1,100 @@
+<form #ngForm="ngForm" class="flex flex-col gap-2">
+  <div>
+    <label for="fullName" class="font-medium font-serif mb-1 block">
+      Full name
+    </label>
+    <input
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      [class.border-red-500]="
+        fullName.errors && (fullName.touched || fullName.dirty)
+      "
+      id="fullName"
+      name="fullName"
+      placeholder="(minimum 3 characters)"
+      [(ngModel)]="form.fullName"
+      minlength="3"
+      required
+      #fullName="ngModel"
+    />
+
+    <div
+      *ngIf="fullName.errors && (fullName.touched || fullName.dirty)"
+      class="text-red-600 text-sm"
+    >
+      <div *ngIf="fullName.hasError('required')">This field is required</div>
+      <div *ngIf="fullName.hasError('minlength')">
+        Minimum {{ fullName.getError("minlength").requiredLength }} characers
+      </div>
+    </div>
+  </div>
+  <div>
+    <label for="address" class="font-medium font-serif mb-1 block">
+      Address
+    </label>
+    <input
+      type="text"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      [class.border-red-500]="
+        address.errors && (address.touched || address.dirty)
+      "
+      id="address"
+      name="address"
+      placeholder="(minimum 6 characters)"
+      [(ngModel)]="form.address"
+      minlength="6"
+      required
+      #address="ngModel"
+    />
+
+    <div
+      *ngIf="address.errors && (address.touched || address.dirty)"
+      class="text-red-600 text-sm"
+    >
+      <div *ngIf="address.hasError('required')">This field is required</div>
+      <div *ngIf="address.hasError('minlength')">
+        Minimum {{ address.getError("minlength").requiredLength }} characers
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label for="creditCardNumber" class="font-medium font-serif mb-1 block">
+      Credit card number
+    </label>
+    <input
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      [class.border-red-500]="
+        creditCard.errors && (creditCard.touched || creditCard.dirty)
+      "
+      id="creditcard"
+      name="creditcard"
+      placeholder="(16-digit number)"
+      [(ngModel)]="form.creditcard"
+      minlength="16"
+      maxlength="16"
+      required
+      #creditCard="ngModel"
+    />
+
+    <div
+      *ngIf="creditCard.errors && (creditCard.touched || creditCard.dirty)"
+      class="text-red-600 text-sm"
+    >
+      <div *ngIf="creditCard.hasError('required')">This field is required</div>
+      <div *ngIf="creditCard.hasError('minlength')">
+        Contains {{ creditCard.getError("minlength").requiredLength }} characers
+      </div>
+    </div>
+  </div>
+  <p class="text-sm text-gray-600 italic">
+    We never share your payment details with anyone else.
+  </p>
+
+  <button
+    (click)="onSubmitClick(ngForm)"
+    type="button"
+    class="mt-auto rounded text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5"
+  >
+    Submit
+  </button>
+</form>

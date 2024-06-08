@@ -1,0 +1,23 @@
+<div
+  *ngIf="orderInfo"
+  class="sm:max-w-[500px] py-10 mx-auto flex flex-col gap-5 text-center"
+>
+  <p class="text-3xl font-bold text-green-700">SUCCESS! 🎉</p>
+  <p>
+    Thank you, <b>{{ orderInfo.checkoutInfo.fullName }}</b
+    >!
+  </p>
+
+  <p>
+    Your <b>{{ orderInfo.total | currency : "USD" }}</b> order is confirmed!
+  </p>
+
+  <p>Please allow 1-3 business day(s) for shipping.</p>
+
+  <a
+    routerLink="/"
+    class="rounded text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5"
+  >
+    Back to product list
+  </a>
+</div>
