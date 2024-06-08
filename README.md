@@ -1,5 +1,10 @@
 # MyStore
 
+# Node version
+
+**BE**: node v18.17.0
+**FE**: node v20.11.1
+
 ## Backend
 
 Pull this repo and read the README.md for the instruction to properly start the BE on your local machine: https://github.com/Manh4real/udacity-storefront-be
