@@ -37,6 +37,15 @@ export class CartService {
     localStorage.setItem(this.storageKey, JSON.stringify(this.cart));
   }
 
+  removeProduct(product: Product): void {
+    const filtered = this.cart.filter(
+      (p) => String(p.product_id) !== String(product.product_id)
+    );
+
+    this._cart$.next(filtered);
+    localStorage.setItem(this.storageKey, JSON.stringify(this.cart));
+  }
+
   addToCart(product: Product): void {
     // NOTE: product updated by REFERENCE
     product.quantity = Number(product.quantity);

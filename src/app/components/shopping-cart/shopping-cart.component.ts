@@ -41,6 +41,10 @@ export class ShoppingCartComponent implements OnInit {
     this.cartService.updateCart(product, { quantity });
   }
 
+  onDeleteClick(product: Product): void {
+    this.cartService.removeProduct(product);
+  }
+
   onCheckoutSubmit(checkoutForm: CheckoutForm): void {
     this.router.navigate(['/order-confirmation'], {
       queryParams: {
