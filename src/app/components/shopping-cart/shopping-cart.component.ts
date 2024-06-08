@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../../services/cart.service';
-import { Product } from '../../models/product';
-import { map } from 'rxjs';
-import { CheckoutForm } from '../checkout-form/checkout-form.component';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
+
+import { CartService } from '../../services/cart.service';
+import { Product } from '../../models/product';
+import { CheckoutForm } from '../checkout-form/checkout-form.component';
 
 @Component({
   selector: 'app-shopping-cart',

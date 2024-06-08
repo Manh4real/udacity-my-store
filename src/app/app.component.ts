@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
+import { CartService } from './services/cart.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { CartService } from '../services/cart.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  constructor(private readonly cartService: CartService) {}
+  constructor(protected readonly cartService: CartService) {}
 
   ngOnInit(): void {
     this.cartService.getCartFromStorage();

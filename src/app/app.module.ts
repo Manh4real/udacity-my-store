@@ -8,15 +8,15 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductItemComponent } from './components/product-item/product-item.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
-import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { FormsModule } from '@angular/forms';
+import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [

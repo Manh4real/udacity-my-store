@@ -29,8 +29,9 @@
             routerLinkActive="text-blue-500"
             [routerLinkActiveOptions]="{ exact: true }"
             class="block text-white"
-            >Cart</a
           >
+            Cart ({{ (cartService.cart$ | async)?.length }})
+          </a>
         </li>
       </ul>
     </div>
