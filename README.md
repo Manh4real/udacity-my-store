@@ -16,3 +16,7 @@
 - To init project, run: `npm i`
 - To start the application, run: `npm start`
 - FE PORT: `4200`
+
+## Auth
+
+Use this account `{ user_id: 1, password: 123456 }` to login

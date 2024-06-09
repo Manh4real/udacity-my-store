@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { CartService } from '../services/cart.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   template: `
@@ -31,6 +32,16 @@ import { CartService } from '../services/cart.service';
                 Cart ({{ (cartService.cart$ | async)?.length }})
               </a>
             </li>
+            <li *ngIf="authService.getToken()">
+              <a
+                routerLink="/shopping-cart"
+                routerLinkActive="!text-blue-500"
+                [routerLinkActiveOptions]="{ exact: true }"
+                class="block text-white"
+              >
+                Cart ({{ (cartService.cart$ | async)?.length }})
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -40,5 +51,8 @@ import { CartService } from '../services/cart.service';
   `,
 })
 export class MainLayoutComponent {
-  constructor(protected readonly cartService: CartService) {}
+  constructor(
+    protected readonly authService: AuthService,
+    protected readonly cartService: CartService
+  ) {}
 }
