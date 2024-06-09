@@ -62,7 +62,6 @@
       Credit card number
     </label>
     <input
-      type="number"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
       [class.border-red-500]="
         creditCard.errors && (creditCard.touched || creditCard.dirty)
@@ -71,8 +70,8 @@
       name="creditcard"
       placeholder="(16-digit number)"
       [(ngModel)]="form.creditcard"
-      minlength="16"
       maxlength="16"
+      pattern="\d{16}"
       required
       #creditCard="ngModel"
     />
@@ -82,8 +81,12 @@
       class="text-red-600 text-sm"
     >
       <div *ngIf="creditCard.hasError('required')">This field is required</div>
-      <div *ngIf="creditCard.hasError('minlength')">
-        Contains {{ creditCard.getError("minlength").requiredLength }} characers
+      <div
+        *ngIf="
+          creditCard.hasError('maxlength') || creditCard.hasError('pattern')
+        "
+      >
+        Contains 16-digit number
       </div>
     </div>
   </div>

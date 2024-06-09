@@ -1,0 +1,68 @@
+<form #ngForm="ngForm" class="sm:max-w-[500px] mx-auto p-5 flex flex-col gap-2">
+  <div>
+    <p class="font-serif font-bold text-3xl mb-6">LOGIN</p>
+  </div>
+
+  <div>
+    <label for="userId" class="font-medium font-serif mb-1 block">
+      User ID
+    </label>
+    <input
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      [class.border-red-500]="userId.errors && (userId.touched || userId.dirty)"
+      id="userId"
+      name="userId"
+      [(ngModel)]="form.userId"
+      required
+      #userId="ngModel"
+    />
+
+    <div
+      *ngIf="userId.errors && (userId.touched || userId.dirty)"
+      class="text-red-600 text-sm"
+    >
+      <div *ngIf="userId.hasError('required')">This field is required</div>
+    </div>
+  </div>
+  <div>
+    <label for="password" class="font-medium font-serif mb-1 block">
+      Password
+    </label>
+    <input
+      type="text"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      [class.border-red-500]="
+        password.errors && (password.touched || password.dirty)
+      "
+      id="password"
+      name="password"
+      [(ngModel)]="form.password"
+      minlength="6"
+      placeholder="(minimum 6 characters)"
+      required
+      #password="ngModel"
+    />
+
+    <div
+      *ngIf="password.errors && (password.touched || password.dirty)"
+      class="text-red-600 text-sm"
+    >
+      <div *ngIf="password.hasError('required')">This field is required</div>
+      <div *ngIf="password.hasError('minlength')">
+        Minimum {{ password.getError("minlength").requiredLength }} characers
+      </div>
+    </div>
+  </div>
+
+  <p class="text-sm text-gray-600 italic">
+    We never share your payment details with anyone else.
+  </p>
+
+  <button
+    (click)="onSubmitClick(ngForm)"
+    type="button"
+    class="mt-auto rounded text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5"
+  >
+    Submit
+  </button>
+</form>

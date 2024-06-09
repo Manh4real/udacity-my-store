@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
 
 export interface CheckoutForm {
   fullName: string;
@@ -21,7 +24,18 @@ export class CheckoutFormComponent {
     creditcard: '',
   };
 
+  constructor(
+    private readonly router: Router,
+    private readonly authService: AuthService
+  ) {}
+
   onSubmitClick(ngForm: NgForm): void {
+    if (!this.authService.user && !this.authService.getToken()) {
+      this.router.navigate(['/login']);
+
+      return;
+    }
+
     const form = ngForm.form;
 
     form.markAllAsTouched();

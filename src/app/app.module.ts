@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {
   HTTP_INTERCEPTORS,
   provideHttpClient,
+  withInterceptors,
   withInterceptorsFromDi,
 } from '@angular/common/http';
 
@@ -17,6 +18,9 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { LoginComponent } from './components/login/login.component';
+import { authInterceptor } from './interceptors/auth.interceptor';
+import { MainLayoutComponent } from './layouts/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +31,15 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     ShoppingCartComponent,
     CheckoutFormComponent,
     OrderConfirmationComponent,
+    LoginComponent,
+    MainLayoutComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(
+      withInterceptorsFromDi(),
+      withInterceptors([authInterceptor])
+    ),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
