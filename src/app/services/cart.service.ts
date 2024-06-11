@@ -44,6 +44,7 @@ export class CartService {
 
     this._cart$.next(filtered);
     localStorage.setItem(this.storageKey, JSON.stringify(this.cart));
+    alert('Removed from cart');
   }
 
   addToCart(product: Product): void {
